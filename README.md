@@ -2,6 +2,18 @@
 
 - [envsubst](./envsubst)
 
+## Development
+
+### Useful commands
+
+```bash
+# build an image
+task common:build -d <tool-name>
+
+# load a tar into docker daemon
+task common:load -d <tool-name>
+```
+
 ### Reference
 
 - [The apko File Format][apko_file]
