@@ -2,6 +2,7 @@ contents:
   repositories:
     - https://dl-cdn.alpinelinux.org/alpine/edge/main
   packages:
+    - busybox-binsh
     - gettext
 
 archs:
