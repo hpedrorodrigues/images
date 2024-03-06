@@ -1,0 +1,37 @@
+name: Build (& Publish) / envsubst
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/envsubst.yml'
+      - 'envsubst/**'
+  pull_request:
+    paths:
+      - '.github/workflows/envsubst.yml'
+      - 'envsubst/**'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v4
+      - name: Build image
+        uses: distroless/actions/apko-build@main
+        working-directory: envsubst
+        with:
+          config: envsubst.apko.yaml
+          tag: ghcr.io/hpedrorodrigues/envsubst:${{ github.ref_name }} ghcr.io/hpedrorodrigues/envsubst:latest
+  publish:
+    runs-on: ubuntu-latest
+    if: github.event_name != 'pull_request'
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v4
+      - name: Publish image
+        uses: distroless/actions/apko-publish@main
+        working-directory: envsubst
+        with:
+          config: envsubst.apko.yaml
+          tag: ghcr.io/hpedrorodrigues/envsubst:${{ github.ref_name }} ghcr.io/hpedrorodrigues/envsubst:latest
