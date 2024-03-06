@@ -1,19 +1,19 @@
 version: '3'
 
 vars:
-  REGISTRY_USERNAME: hpedrorodrigues
+  REGISTRY: ghcr.io/hpedrorodrigues
 
 tasks:
   build:
     cmds:
-      - apko build '{{ .TOOL_NAME }}.apko.yaml' '{{ .REGISTRY_USERNAME }}/{{ .TOOL_NAME }}:latest' '{{ .TOOL_NAME }}-latest.apko.tar'
+      - apko build '{{ .TOOL_NAME }}.apko.yaml' '{{ .REGISTRY }}/{{ .TOOL_NAME }}:latest' '{{ .TOOL_NAME }}-latest.apko.tar'
     requires:
       vars:
         - TOOL_NAME
 
   publish:
     cmds:
-      - apko publish '{{ .TOOL_NAME }}.apko.yaml' '{{ .REGISTRY_USERNAME }}/{{ .TOOL_NAME }}:latest'
+      - apko publish '{{ .TOOL_NAME }}.apko.yaml' '{{ .REGISTRY }}/{{ .TOOL_NAME }}:latest'
     requires:
       vars:
         - TOOL_NAME

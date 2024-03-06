@@ -20,6 +20,7 @@ jobs:
       - name: Build image
         uses: distroless/actions/apko-build@main
         with:
+          archs: amd64,arm64
           config: envsubst/envsubst.apko.yaml
           tag: ghcr.io/hpedrorodrigues/envsubst:${{ github.ref_name }} ghcr.io/hpedrorodrigues/envsubst:latest
   publish:
@@ -39,5 +40,6 @@ jobs:
       - name: Publish image
         uses: distroless/actions/apko-publish@main
         with:
+          archs: amd64,arm64
           config: envsubst/envsubst.apko.yaml
           tag: ghcr.io/hpedrorodrigues/envsubst:${{ github.ref_name }} ghcr.io/hpedrorodrigues/envsubst:latest
