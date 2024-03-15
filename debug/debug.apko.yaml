@@ -41,5 +41,5 @@ cmd: /bin/bash -l
 
 annotations:
   org.opencontainers.image.title: debug
-  org.opencontainers.image.authors: github.com/hpedrorodrigues
-  org.opencontainers.image.url: github.com/hpedrorodrigues/images/tree/main/debug
+  org.opencontainers.image.authors: Pedro Rodrigues <github.com/hpedrorodrigues>
+  org.opencontainers.image.source: https://github.com/hpedrorodrigues/images

@@ -9,10 +9,10 @@
 
 ```bash
 # build an image
-task common:build -d <tool-name>
+task common:build -d <directory>
 
 # load a tar into docker daemon
-task common:load -d <tool-name>
+task common:load -d <directory>
 ```
 
 ### Reference
