@@ -4,4 +4,4 @@ includes:
   common:
     taskfile: ../common.Taskfile.yml
     vars:
-      TOOL_NAME: envsubst
+      IMAGE: envsubst

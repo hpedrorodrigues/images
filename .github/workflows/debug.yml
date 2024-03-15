@@ -1,15 +1,15 @@
-name: Release (envsubst)
+name: Release (debug)
 on:
   push:
     branches:
       - main
     paths:
-      - '.github/workflows/envsubst.yml'
-      - 'envsubst/**'
+      - '.github/workflows/debug.yml'
+      - 'debug/**'
   pull_request:
     paths:
-      - '.github/workflows/envsubst.yml'
-      - 'envsubst/**'
+      - '.github/workflows/debug.yml'
+      - 'debug/**'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -21,8 +21,8 @@ jobs:
         uses: distroless/actions/apko-build@main
         with:
           archs: amd64,arm64
-          config: envsubst/envsubst.apko.yaml
-          tag: ghcr.io/hpedrorodrigues/envsubst:pr
+          config: debug/debug.apko.yaml
+          tag: ghcr.io/hpedrorodrigues/debug:pr
   release:
     runs-on: ubuntu-latest
     if: github.event_name != 'pull_request'
@@ -41,5 +41,5 @@ jobs:
         uses: distroless/actions/apko-publish@main
         with:
           archs: amd64,arm64
-          config: envsubst/envsubst.apko.yaml
-          tag: ghcr.io/hpedrorodrigues/envsubst:${{ github.ref_name }} ghcr.io/hpedrorodrigues/envsubst:latest
+          config: debug/debug.apko.yaml
+          tag: ghcr.io/hpedrorodrigues/debug:${{ github.ref_name }} ghcr.io/hpedrorodrigues/debug:latest

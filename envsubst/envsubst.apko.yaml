@@ -17,4 +17,4 @@ cmd: /bin/sh -l
 annotations:
   org.opencontainers.image.title: envsubst
   org.opencontainers.image.authors: github.com/hpedrorodrigues
-  org.opencontainers.image.url: github.com/hpedrorodrigues/images
+  org.opencontainers.image.url: github.com/hpedrorodrigues/images/tree/main/envsubst
