@@ -1,0 +1,45 @@
+contents:
+  repositories:
+    - https://dl-cdn.alpinelinux.org/alpine/edge/main
+    - https://dl-cdn.alpinelinux.org/alpine/edge/community
+  packages:
+    - aws-cli
+    - bash
+    - bind-tools
+    - bridge-utils
+    - busybox-extras
+    - conntrack-tools
+    - curl
+    - ethtool
+    - iperf
+    - iproute2
+    - ipset
+    - iptables
+    - iputils
+    - jq
+    - mtr
+    - net-snmp-tools
+    - nftables
+    - nmap
+    - openssl
+    - socat
+    - strace
+    - tcpdump
+    - tcptraceroute
+    - util-linux
+    - vim
+    - wget
+
+archs:
+  - amd64
+  - arm64
+
+environment:
+  PATH: /usr/sbin:/sbin:/usr/bin:/bin
+
+cmd: /bin/bash -l
+
+annotations:
+  org.opencontainers.image.title: debug
+  org.opencontainers.image.authors: github.com/hpedrorodrigues
+  org.opencontainers.image.url: github.com/hpedrorodrigues/images/tree/main/debug

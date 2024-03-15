@@ -1,5 +1,6 @@
 # Reusable Images
 
+- [debug](./debug)
 - [envsubst](./envsubst)
 
 ## Development
@@ -18,7 +19,6 @@ task common:load -d <tool-name>
 
 - [The apko File Format][apko_file]
 - [OCI Image Format Specification / Annotations][image_spec_annotations]
-
 
 
 
