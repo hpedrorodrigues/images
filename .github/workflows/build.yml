@@ -1,4 +1,4 @@
-name: Build (${{ inputs.image }})
+name: Build
 on:
   workflow_call:
     inputs:

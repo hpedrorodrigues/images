@@ -1,4 +1,4 @@
-name: Publish (${{ inputs.image }})
+name: Publish
 on:
   workflow_call:
     inputs:
