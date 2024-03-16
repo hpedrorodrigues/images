@@ -26,6 +26,7 @@ jobs:
     with:
       owner: ${{ github.repository_owner }}
       image: envsubst
-      tag: ${{ github.ref_name }}-1.${{ github.run_number }}.${{ github.run_attempt }}
+      tag: 1.${{ github.run_number }}.${{ github.run_attempt }}
+      revision: ${{ github.sha }}
     secrets:
       token: ${{ secrets.GITHUB_TOKEN }}
