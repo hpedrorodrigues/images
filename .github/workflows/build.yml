@@ -1,0 +1,23 @@
+name: Build (${{ inputs.image }})
+on:
+  workflow_call:
+    inputs:
+      owner:
+        description: 'Repository owner'
+        required: true
+        type: string
+      image:
+        description: 'Image to be built'
+        required: true
+        type: string
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v4
+      - name: Build image
+        uses: distroless/actions/apko-build@main
+        with:
+          config: ${{ inputs.image }}/${{ inputs.image }}.apko.yaml
+          tag: ghcr.io/${{ inputs.owner }}/${{ inputs.image }}:pr
