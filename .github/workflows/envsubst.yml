@@ -27,4 +27,4 @@ jobs:
       image: envsubst
       tag: ${{ github.ref_name }}
     secrets:
-      token: ${{ github.token }}
+      token: ${{ secrets.GITHUB_TOKEN }}
