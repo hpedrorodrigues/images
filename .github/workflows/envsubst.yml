@@ -1,4 +1,4 @@
-name: Release (envsubst)
+name: envsubst
 on:
   push:
     branches:
@@ -12,34 +12,19 @@ on:
       - 'envsubst/**'
 jobs:
   build:
-    runs-on: ubuntu-latest
     if: github.event_name == 'pull_request'
-    steps:
-      - name: Clone repository
-        uses: actions/checkout@v4
-      - name: Build image
-        uses: distroless/actions/apko-build@main
-        with:
-          archs: amd64,arm64
-          config: envsubst/envsubst.apko.yaml
-          tag: ghcr.io/hpedrorodrigues/envsubst:pr
-  release:
-    runs-on: ubuntu-latest
-    if: github.event_name != 'pull_request'
+    uses: ./.github/workflows/build.yml
+    with:
+      owner: ${{ github.repository_owner }}
+      image: envsubst
+  publish:
     permissions:
       packages: write
-    steps:
-      - name: Clone repository
-        uses: actions/checkout@v4
-      - name: Login to GitHub Container Registry
-        uses: docker/login-action@v3
-        with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Publish image
-        uses: distroless/actions/apko-publish@main
-        with:
-          archs: amd64,arm64
-          config: envsubst/envsubst.apko.yaml
-          tag: ghcr.io/hpedrorodrigues/envsubst:${{ github.ref_name }} ghcr.io/hpedrorodrigues/envsubst:latest
+    if: github.event_name != 'pull_request'
+    uses: ./.github/workflows/publish.yml
+    with:
+      owner: ${{ github.repository_owner }}
+      image: envsubst
+      tag: ${{ github.ref_name }}
+    secrets:
+      token: ${{ github.token }}
