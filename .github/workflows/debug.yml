@@ -18,6 +18,8 @@ jobs:
       owner: ${{ github.repository_owner }}
       image: debug
   publish:
+    permissions:
+      packages: write
     if: github.event_name != 'pull_request'
     uses: ./.github/workflows/publish.yml
     with:
