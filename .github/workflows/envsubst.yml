@@ -17,6 +17,7 @@ jobs:
     with:
       owner: ${{ github.repository_owner }}
       image: envsubst
+      tag: pr-${{ github.event.pull_request.head.sha }}
   publish:
     permissions:
       packages: write
@@ -25,6 +26,6 @@ jobs:
     with:
       owner: ${{ github.repository_owner }}
       image: envsubst
-      tag: ${{ github.ref_name }}
+      tag: ${{ github.ref_name }}-1.${{ github.run_number }}.${{ github.run_attempt }}
     secrets:
       token: ${{ secrets.GITHUB_TOKEN }}
