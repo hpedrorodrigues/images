@@ -36,6 +36,4 @@ jobs:
         uses: distroless/actions/apko-publish@main
         with:
           config: ${{ inputs.image }}/${{ inputs.image }}.apko.yaml
-          tag: |
-            ghcr.io/${{ inputs.owner }}/${{ inputs.image }}:${{ inputs.tag }}
-            ghcr.io/${{ inputs.owner }}/${{ inputs.image }}:latest
+          tag: ghcr.io/${{ inputs.owner }}/${{ inputs.image }}:${{ inputs.tag }} ghcr.io/${{ inputs.owner }}/${{ inputs.image }}:latest
