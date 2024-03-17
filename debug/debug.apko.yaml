@@ -3,7 +3,6 @@ contents:
     - https://dl-cdn.alpinelinux.org/alpine/edge/main
     - https://dl-cdn.alpinelinux.org/alpine/edge/community
   packages:
-    - aws-cli
     - bash
     - bind-tools
     - bridge-utils
@@ -27,7 +26,6 @@ contents:
     - tcpdump
     - tcptraceroute
     - util-linux
-    - vim
     - wget
 
 archs:
