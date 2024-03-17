@@ -7,13 +7,13 @@ on:
       - '.github/workflows/build.yml'
       - '.github/workflows/publish.yml'
       - '.github/workflows/envsubst.yml'
-      - 'envsubst/**'
+      - 'images/envsubst/**'
   pull_request:
     paths:
       - '.github/workflows/build.yml'
       - '.github/workflows/publish.yml'
       - '.github/workflows/envsubst.yml'
-      - 'envsubst/**'
+      - 'images/envsubst/**'
 jobs:
   build:
     if: github.event_name == 'pull_request'

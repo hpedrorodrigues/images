@@ -7,13 +7,13 @@ on:
       - '.github/workflows/build.yml'
       - '.github/workflows/publish.yml'
       - '.github/workflows/debug.yml'
-      - 'debug/**'
+      - 'images/debug/**'
   pull_request:
     paths:
       - '.github/workflows/build.yml'
       - '.github/workflows/publish.yml'
       - '.github/workflows/debug.yml'
-      - 'debug/**'
+      - 'images/debug/**'
 jobs:
   build:
     if: github.event_name == 'pull_request'
