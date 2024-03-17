@@ -24,6 +24,9 @@ jobs:
       tag: pr-${{ github.event.pull_request.head.sha }}
   publish:
     permissions:
+      actions: read
+      contents: read
+      id-token: write
       packages: write
     if: github.event_name != 'pull_request'
     uses: ./.github/workflows/publish.yml
