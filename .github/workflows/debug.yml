@@ -16,6 +16,7 @@ on:
       - '.github/workflows/publish.yml'
       - '.github/workflows/debug.yml'
       - 'images/debug/**'
+  workflow_dispatch:
 jobs:
   build:
     if: github.event_name == 'pull_request'
