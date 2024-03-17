@@ -52,7 +52,7 @@ jobs:
       - name: Publish to Docker Hub
         uses: hpedrorodrigues/chainguard-actions/apko-snapshot@dev
         with:
-          config: ${{ inputs.image }}/${{ inputs.image }}.apko.yaml
+          config: images/${{ inputs.image }}/${{ inputs.image }}.apko.yaml
           base-tag: docker.io/${{ inputs.owner }}/${{ inputs.image }}
           target-tag: latest
           additional-tags: ${{ inputs.tag }}
@@ -83,7 +83,7 @@ jobs:
       - name: Publish to GitHub Container Registry
         uses: hpedrorodrigues/chainguard-actions/apko-snapshot@dev
         with:
-          config: ${{ inputs.image }}/${{ inputs.image }}.apko.yaml
+          config: images/${{ inputs.image }}/${{ inputs.image }}.apko.yaml
           base-tag: ghcr.io/${{ inputs.owner }}/${{ inputs.image }}
           target-tag: latest
           additional-tags: ${{ inputs.tag }}

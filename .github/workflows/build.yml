@@ -23,5 +23,5 @@ jobs:
       - name: Build image
         uses: distroless/actions/apko-build@main
         with:
-          config: ${{ inputs.image }}/${{ inputs.image }}.apko.yaml
+          config: images/${{ inputs.image }}/${{ inputs.image }}.apko.yaml
           tag: ghcr.io/${{ inputs.owner }}/${{ inputs.image }}:${{ inputs.tag }}

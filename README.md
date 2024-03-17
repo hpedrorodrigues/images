@@ -1,7 +1,7 @@
 # Reusable Images
 
-- [debug](./debug)
-- [envsubst](./envsubst)
+- [debug](./images/debug)
+- [envsubst](./images/envsubst)
 
 ## Development
 
@@ -17,10 +17,7 @@ task common:load -d <directory>
 
 ### Reference
 
-- [The apko File Format][apko_file]
-- [OCI Image Format Specification / Annotations][image_spec_annotations]
-
-
-
-[apko_file]: https://github.com/chainguard-dev/apko/blob/278d65cd558b9fd0225d072a1f3a2256e2cd85d7/docs/apko_file.md
-[image_spec_annotations]: https://github.com/opencontainers/image-spec/blob/f5f87016de46439ccf91b5381cf76faaae2bc28f/annotations.md
+- [SLSA specification](https://slsa.dev)
+- [Sigstore docs](https://docs.sigstore.dev)
+- [The apko File Format](https://github.com/chainguard-dev/apko/blob/f9d2fa482716570642219f000fe090d3c46c67e6/docs/apko_file.md)
+- [OCI Image Format Specification](https://github.com/opencontainers/image-spec/blob/6a983fd8be10f63063ce6452be099cd6e20fb36b/README.md)
