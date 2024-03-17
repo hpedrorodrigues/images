@@ -33,4 +33,5 @@ jobs:
       tag: 1.${{ github.run_number }}.${{ github.run_attempt }}
       revision: ${{ github.sha }}
     secrets:
-      token: ${{ secrets.GITHUB_TOKEN }}
+      docker_hub_token: ${{ secrets.DOCKERHUB_TOKEN }}
+      gcr_token: ${{ secrets.GITHUB_TOKEN }}
