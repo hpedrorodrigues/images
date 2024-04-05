@@ -1,7 +1,7 @@
 contents:
   repositories:
     - https://dl-cdn.alpinelinux.org/alpine/edge/main
-    - '@local /Users/pedrorodrigues/Code/Personal/images/images/prettier/packages'
+    - '@local packages'
   packages:
     - alpine-baselayout-data
     - prettier@local
