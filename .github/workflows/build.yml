@@ -14,12 +14,22 @@ on:
         description: 'Tag to be used for the image'
         required: true
         type: string
+      build_package:
+        description: 'Whether to build a melange package'
+        default: false
+        type: boolean
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Clone repository
         uses: actions/checkout@v4
+      - name: Build package
+        uses: chainguard-dev/actions/melange-build@main
+        if: ${{ inputs.build_package }}
+        with:
+          sign-with-temporary-key: true
+          config: images/${{ inputs.image }}/${{ inputs.image }}.melange.yaml
       - name: Build image
         uses: distroless/actions/apko-build@main
         with:

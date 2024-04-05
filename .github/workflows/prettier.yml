@@ -25,6 +25,7 @@ jobs:
       owner: ${{ github.repository_owner }}
       image: prettier
       tag: pr-${{ github.event.pull_request.head.sha }}
+      build_package: true
   publish:
     permissions:
       actions: read
