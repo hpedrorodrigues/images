@@ -11,13 +11,16 @@ package:
   target-architecture:
     - amd64
     - arm64
+  copyright:
+    - license: Apache-2.0
+      paths:
+        - '*'
 
 environment:
   contents:
-    keyring:
-      - https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
     repositories:
-      - https://packages.wolfi.dev/os
+      - https://dl-cdn.alpinelinux.org/alpine/edge/main
+      - https://dl-cdn.alpinelinux.org/alpine/edge/community
     packages:
       - build-base
       - busybox
