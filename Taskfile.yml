@@ -1,0 +1,27 @@
+version: '3'
+
+includes:
+  debug:
+    taskfile: images/debug/Taskfile.yml
+    internal: true
+  envsubst:
+    taskfile: images/envsubst/Taskfile.yml
+    internal: true
+  prettier:
+    taskfile: images/prettier/Taskfile.yml
+    internal: true
+
+tasks:
+  build:
+    deps:
+      - task: debug:common:build
+      - task: envsubst:common:build
+      - task: prettier:common:build
+  load:
+    deps:
+      - task: debug:common:load
+      - task: envsubst:common:load
+      - task: prettier:common:load
+  clean:
+    cmds:
+      - find . \( -name '*.cdx' -o -name '*.spdx.json' -o -name '*.tar' -o -name 'packages' \) -delete

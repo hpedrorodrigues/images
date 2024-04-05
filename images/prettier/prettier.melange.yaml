@@ -1,0 +1,32 @@
+package:
+  name: prettier
+  version: 3.2.5
+  epoch: 0
+  checks:
+    disabled:
+      - usrlocal
+  dependencies:
+    runtime:
+      - nodejs
+  target-architecture:
+    - amd64
+    - arm64
+
+environment:
+  contents:
+    keyring:
+      - https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
+    repositories:
+      - https://packages.wolfi.dev/os
+    packages:
+      - build-base
+      - busybox
+      - ca-certificates-bundle
+      - nodejs
+      - npm
+
+pipeline:
+  - uses: npm/install
+    with:
+      package: ${{package.name}}
+      version: ${{package.version}}

@@ -18,6 +18,4 @@ cosign verify ghcr.io/hpedrorodrigues/envsubst:<tag> \
   --certificate-identity=https://github.com/hpedrorodrigues/images/.github/workflows/publish.yml@refs/heads/main
 ```
 
-
-
 [envsubst]: https://www.gnu.org/software/gettext/manual/html_node/envsubst-Invocation.html

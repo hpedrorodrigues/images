@@ -18,4 +18,4 @@ annotations:
   org.opencontainers.image.title: envsubst
   org.opencontainers.image.description: Simple image wrapping envsubst (gettext)
   org.opencontainers.image.authors: Pedro Rodrigues <github.com/hpedrorodrigues>
-  org.opencontainers.image.source: https://github.com/hpedrorodrigues/images/tree/main/envsubst
+  org.opencontainers.image.source: https://github.com/hpedrorodrigues/images/tree/main/images/envsubst

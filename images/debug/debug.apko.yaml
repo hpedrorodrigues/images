@@ -41,4 +41,4 @@ annotations:
   org.opencontainers.image.title: debug
   org.opencontainers.image.description: Simple image with tools for debugging and troubleshooting
   org.opencontainers.image.authors: Pedro Rodrigues <github.com/hpedrorodrigues>
-  org.opencontainers.image.source: https://github.com/hpedrorodrigues/images/tree/main/debug
+  org.opencontainers.image.source: https://github.com/hpedrorodrigues/images/tree/main/images/debug

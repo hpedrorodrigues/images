@@ -1,0 +1,23 @@
+contents:
+  repositories:
+    - https://dl-cdn.alpinelinux.org/alpine/edge/main
+    - '@local /Users/pedrorodrigues/Code/Personal/images/images/prettier/packages'
+  packages:
+    - alpine-baselayout-data
+    - prettier@local
+
+archs:
+  - amd64
+  - arm64
+
+environment:
+  PATH: /usr/sbin:/sbin:/usr/bin:/bin
+
+entrypoint:
+  command: prettier
+
+annotations:
+  org.opencontainers.image.title: prettier
+  org.opencontainers.image.description: Simple image wrapping Prettier
+  org.opencontainers.image.authors: Pedro Rodrigues <github.com/hpedrorodrigues>
+  org.opencontainers.image.source: https://github.com/hpedrorodrigues/images/tree/main/images/prettier
