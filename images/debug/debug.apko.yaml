@@ -1,3 +1,4 @@
+# TODO: move to wolfi since it has the packages we need to exclude here since they are not compiled for amd64 arch
 contents:
   repositories:
     - https://dl-cdn.alpinelinux.org/alpine/edge/main
@@ -10,13 +11,13 @@ contents:
     - conntrack-tools
     - curl
     - ethtool
-    - iperf
+    # - iperf
     - iproute2
     - ipset
     - iptables
     - iputils
     - jq
-    - mtr
+    # - mtr
     - net-snmp-tools
     - nftables
     - nmap
@@ -24,7 +25,7 @@ contents:
     - socat
     - strace
     - tcpdump
-    - tcptraceroute
+    # - tcptraceroute
     - util-linux
     - wget
 
