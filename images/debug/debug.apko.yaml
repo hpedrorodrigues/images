@@ -22,6 +22,7 @@ contents:
     - nftables
     - nmap
     - openssl
+    - redis
     - socat
     - strace
     - tcpdump
