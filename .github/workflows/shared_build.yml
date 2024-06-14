@@ -3,19 +3,15 @@ on:
   workflow_call:
     inputs:
       owner:
-        description: 'Repository owner'
         required: true
         type: string
       image:
-        description: 'Image to be built'
         required: true
         type: string
-      tag:
-        description: 'Tag to be used for the image'
+      version:
         required: true
         type: string
-      build_package:
-        description: 'Whether to build a melange package'
+      melange_package:
         default: false
         type: boolean
 jobs:
@@ -24,15 +20,12 @@ jobs:
     steps:
       - name: Clone repository
         uses: actions/checkout@v4
-      - name: Build repository folder
-        if: ${{ inputs.build_package }}
-        run: mkdir "${{ github.workspace }}/images/${{ inputs.image }}/packages"
       - name: Setup QEMU
-        if: ${{ inputs.build_package }}
+        if: ${{ inputs.melange_package }}
         uses: docker/setup-qemu-action@v3
       - name: Build package
         uses: chainguard-dev/actions/melange-build@main
-        if: ${{ inputs.build_package }}
+        if: ${{ inputs.melange_package }}
         with:
           sign-with-temporary-key: true
           config: images/${{ inputs.image }}/${{ inputs.image }}.melange.yaml
@@ -42,6 +35,6 @@ jobs:
         uses: distroless/actions/apko-build@main
         with:
           config: images/${{ inputs.image }}/${{ inputs.image }}.apko.yaml
-          tag: ghcr.io/${{ inputs.owner }}/${{ inputs.image }}:${{ inputs.tag }}
+          tag: ghcr.io/${{ inputs.owner }}/${{ inputs.image }}:${{ inputs.version }}
           repository-append: ${{ github.workspace }}/images/${{ inputs.image }}/packages
-          keyring-append: ${{ inputs.build_package && format('{0}/melange.rsa.pub', github.workspace) || '' }}
+          keyring-append: ${{ inputs.melange_package && format('{0}/melange.rsa.pub', github.workspace) || '' }}

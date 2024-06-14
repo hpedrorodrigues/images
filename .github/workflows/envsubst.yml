@@ -6,25 +6,23 @@ on:
     branches:
       - main
     paths:
-      - '.github/workflows/build.yml'
-      - '.github/workflows/publish.yml'
+      - '.github/workflows/shared**'
       - '.github/workflows/envsubst.yml'
       - 'images/envsubst/**'
   pull_request:
     paths:
-      - '.github/workflows/build.yml'
-      - '.github/workflows/publish.yml'
+      - '.github/workflows/shared**'
       - '.github/workflows/envsubst.yml'
       - 'images/envsubst/**'
   workflow_dispatch:
 jobs:
   build:
     if: github.event_name == 'pull_request'
-    uses: ./.github/workflows/build.yml
+    uses: ./.github/workflows/shared_build.yml
     with:
       owner: ${{ github.repository_owner }}
       image: envsubst
-      tag: pr-${{ github.event.pull_request.head.sha }}
+      version: pr-${{ github.event.pull_request.head.sha }}
   publish:
     permissions:
       actions: read
@@ -32,12 +30,12 @@ jobs:
       id-token: write
       packages: write
     if: github.event_name != 'pull_request'
-    uses: ./.github/workflows/publish.yml
+    uses: ./.github/workflows/shared_publish.yml
     with:
       owner: ${{ github.repository_owner }}
       image: envsubst
-      tag: 1.${{ github.run_number }}.${{ github.run_attempt }}
+      version: 1.${{ github.run_number }}.${{ github.run_attempt }}
       revision: ${{ github.sha }}
     secrets:
-      docker_hub_token: ${{ secrets.DOCKERHUB_TOKEN }}
+      dh_token: ${{ secrets.DOCKERHUB_TOKEN }}
       gcr_token: ${{ secrets.GITHUB_TOKEN }}
