@@ -2,6 +2,7 @@
 
 - [debug](./images/debug)
 - [envsubst](./images/envsubst)
+- [prettier](./images/prettier)
 
 ## Development
 

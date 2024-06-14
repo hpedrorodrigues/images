@@ -16,6 +16,8 @@ environment:
 entrypoint:
   command: prettier
 
+work-dir: /mnt
+
 annotations:
   org.opencontainers.image.title: prettier
   org.opencontainers.image.description: Simple image wrapping Prettier
