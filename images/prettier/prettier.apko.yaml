@@ -4,11 +4,11 @@ contents:
     - '@local packages'
   packages:
     - alpine-baselayout-data
-    - prettier
+    - prettier@local
 
 archs:
-  - amd64
-  - arm64
+  - x86_64
+  - aarch64
 
 environment:
   PATH: /usr/sbin:/sbin:/usr/bin:/bin
