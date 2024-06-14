@@ -10,10 +10,10 @@
 
 ```bash
 # build all images
-task build
+♪ task build
 
 # load all images into the daemon
-task load
+♪ task load
 ```
 
 ### Reference
