@@ -40,7 +40,7 @@ jobs:
       - name: Setup QEMU
         if: ${{ inputs.melange_package }}
         uses: docker/setup-qemu-action@v3
-      - name: Build package
+      - name: Build apk package (melange)
         uses: chainguard-dev/actions/melange-build@main
         if: ${{ inputs.melange_package }}
         with:
@@ -89,7 +89,7 @@ jobs:
       - name: Setup QEMU
         if: ${{ inputs.melange_package }}
         uses: docker/setup-qemu-action@v3
-      - name: Build package
+      - name: Build apk package (melange)
         uses: chainguard-dev/actions/melange-build@main
         if: ${{ inputs.melange_package }}
         with:
