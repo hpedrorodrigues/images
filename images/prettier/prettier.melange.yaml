@@ -19,7 +19,6 @@ environment:
       - https://dl-cdn.alpinelinux.org/alpine/edge/community
     packages:
       - build-base
-      - busybox
       - ca-certificates-bundle
       - nodejs
       - npm
