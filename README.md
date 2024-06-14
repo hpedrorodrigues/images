@@ -8,11 +8,11 @@
 ### Useful commands
 
 ```bash
-# build an image
-task common:build -d <directory>
+# build all images
+task build
 
-# load a tar into docker daemon
-task common:load -d <directory>
+# load all images into the daemon
+task load
 ```
 
 ### Reference

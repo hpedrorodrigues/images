@@ -1,4 +1,4 @@
-name: debug
+name: prettier
 on:
   schedule:
     - cron: '0 0 * * *'
@@ -7,13 +7,13 @@ on:
       - main
     paths:
       - '.github/workflows/shared**'
-      - '.github/workflows/debug.yml'
-      - 'images/debug/**'
+      - '.github/workflows/prettier.yml'
+      - 'images/prettier/**'
   pull_request:
     paths:
       - '.github/workflows/shared**'
-      - '.github/workflows/debug.yml'
-      - 'images/debug/**'
+      - '.github/workflows/prettier.yml'
+      - 'images/prettier/**'
   workflow_dispatch:
 jobs:
   build:
@@ -21,8 +21,9 @@ jobs:
     uses: ./.github/workflows/shared_build.yml
     with:
       owner: ${{ github.repository_owner }}
-      image: debug
+      image: prettier
       version: pr-${{ github.event.pull_request.head.sha }}
+      melange_package: true
   publish:
     permissions:
       actions: read
@@ -33,9 +34,10 @@ jobs:
     uses: ./.github/workflows/shared_publish.yml
     with:
       owner: ${{ github.repository_owner }}
-      image: debug
+      image: prettier
       version: 1.${{ github.run_number }}.${{ github.run_attempt }}
       revision: ${{ github.sha }}
+      melange_package: true
     secrets:
       dh_token: ${{ secrets.DOCKERHUB_TOKEN }}
       gcr_token: ${{ secrets.GITHUB_TOKEN }}

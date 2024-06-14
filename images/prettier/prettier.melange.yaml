@@ -1,0 +1,35 @@
+package:
+  name: prettier
+  version: 3.3.2
+  epoch: 0
+  checks:
+    disabled:
+      - usrlocal
+  dependencies:
+    runtime:
+      - nodejs
+  target-architecture:
+    - x86_64
+    - aarch64
+  copyright:
+    - license: Apache-2.0
+      paths:
+        - '*'
+
+environment:
+  contents:
+    repositories:
+      - https://dl-cdn.alpinelinux.org/alpine/edge/main
+      - https://dl-cdn.alpinelinux.org/alpine/edge/community
+    packages:
+      - build-base
+      - busybox
+      - ca-certificates-bundle
+      - nodejs
+      - npm
+
+pipeline:
+  - uses: npm/install
+    with:
+      package: ${{package.name}}
+      version: ${{package.version}}
