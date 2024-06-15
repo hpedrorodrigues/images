@@ -22,4 +22,4 @@ annotations:
   org.opencontainers.image.title: prettier
   org.opencontainers.image.description: Simple image wrapping Prettier
   org.opencontainers.image.authors: Pedro Rodrigues <github.com/hpedrorodrigues>
-  org.opencontainers.image.source: https://github.com/hpedrorodrigues/images/tree/main/images/prettier
+  org.opencontainers.image.source: https://github.com/hpedrorodrigues/images/tree/main/prettier

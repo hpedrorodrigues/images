@@ -45,8 +45,8 @@ jobs:
         if: ${{ inputs.melange_package }}
         with:
           sign-with-temporary-key: true
-          config: images/${{ inputs.image }}/${{ inputs.image }}.melange.yaml
-          repository-path: ${{ github.workspace }}/images/${{ inputs.image }}/packages
+          config: ${{ inputs.image }}/${{ inputs.image }}.melange.yaml
+          repository-path: ${{ github.workspace }}/${{ inputs.image }}/packages
           archs: x86_64,aarch64
       - name: Generate date
         id: source-date
@@ -62,7 +62,7 @@ jobs:
       - name: Publish to Docker Hub
         uses: hpedrorodrigues/chainguard-actions/apko-snapshot@dev
         with:
-          config: images/${{ inputs.image }}/${{ inputs.image }}.apko.yaml
+          config: ${{ inputs.image }}/${{ inputs.image }}.apko.yaml
           base-tag: docker.io/${{ inputs.owner }}/${{ inputs.image }}
           target-tag: latest
           additional-tags: ${{ inputs.version }}
@@ -72,7 +72,7 @@ jobs:
           generic-pass: ${{ secrets.dh_token }}
           annotations: org.opencontainers.image.revision:${{ inputs.revision }},org.opencontainers.image.created:${{ steps.source-date.outputs.date }},org.opencontainers.image.version:${{ inputs.version }}
           source-date-epoch: ${{ steps.source-date.outputs.epoch }}
-          repository-append: ${{ github.workspace }}/images/${{ inputs.image }}/packages
+          repository-append: ${{ github.workspace }}/${{ inputs.image }}/packages
           keyring-append: ${{ inputs.melange_package && format('{0}/melange.rsa.pub', github.workspace) || '' }}
   publish-to-github-container-registry:
     name: Publish to GitHub Container Registry (${{ inputs.image }})
@@ -94,8 +94,8 @@ jobs:
         if: ${{ inputs.melange_package }}
         with:
           sign-with-temporary-key: true
-          config: images/${{ inputs.image }}/${{ inputs.image }}.melange.yaml
-          repository-path: ${{ github.workspace }}/images/${{ inputs.image }}/packages
+          config: ${{ inputs.image }}/${{ inputs.image }}.melange.yaml
+          repository-path: ${{ github.workspace }}/${{ inputs.image }}/packages
           archs: x86_64,aarch64
       - name: Generate date
         id: source-date
@@ -106,7 +106,7 @@ jobs:
       - name: Publish to GitHub Container Registry
         uses: hpedrorodrigues/chainguard-actions/apko-snapshot@dev
         with:
-          config: images/${{ inputs.image }}/${{ inputs.image }}.apko.yaml
+          config: ${{ inputs.image }}/${{ inputs.image }}.apko.yaml
           base-tag: ghcr.io/${{ inputs.owner }}/${{ inputs.image }}
           target-tag: latest
           additional-tags: ${{ inputs.version }}
@@ -116,5 +116,5 @@ jobs:
           generic-pass: ${{ secrets.gcr_token }}
           annotations: org.opencontainers.image.revision:${{ inputs.revision }},org.opencontainers.image.created:${{ steps.source-date.outputs.date }},org.opencontainers.image.version:${{ inputs.version }}
           source-date-epoch: ${{ steps.source-date.outputs.epoch }}
-          repository-append: ${{ github.workspace }}/images/${{ inputs.image }}/packages
+          repository-append: ${{ github.workspace }}/${{ inputs.image }}/packages
           keyring-append: ${{ inputs.melange_package && format('{0}/melange.rsa.pub', github.workspace) || '' }}

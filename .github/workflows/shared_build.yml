@@ -28,13 +28,13 @@ jobs:
         if: ${{ inputs.melange_package }}
         with:
           sign-with-temporary-key: true
-          config: images/${{ inputs.image }}/${{ inputs.image }}.melange.yaml
-          repository-path: ${{ github.workspace }}/images/${{ inputs.image }}/packages
+          config: ${{ inputs.image }}/${{ inputs.image }}.melange.yaml
+          repository-path: ${{ github.workspace }}/${{ inputs.image }}/packages
           archs: x86_64,aarch64
       - name: Build image
         uses: distroless/actions/apko-build@main
         with:
-          config: images/${{ inputs.image }}/${{ inputs.image }}.apko.yaml
+          config: ${{ inputs.image }}/${{ inputs.image }}.apko.yaml
           tag: ghcr.io/${{ inputs.owner }}/${{ inputs.image }}:${{ inputs.version }}
-          repository-append: ${{ github.workspace }}/images/${{ inputs.image }}/packages
+          repository-append: ${{ github.workspace }}/${{ inputs.image }}/packages
           keyring-append: ${{ inputs.melange_package && format('{0}/melange.rsa.pub', github.workspace) || '' }}

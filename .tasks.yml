@@ -1,0 +1,25 @@
+version: '3'
+
+vars:
+  REGISTRY: ghcr.io/hpedrorodrigues
+
+tasks:
+  build:
+    cmds:
+      - '! [ -f {{ .IMAGE }}.melange.yaml ] || melange build {{ .IMAGE }}.melange.yaml --runner docker'
+      - 'apko build {{ .IMAGE }}.apko.yaml {{ .REGISTRY }}/{{ .IMAGE }}:latest {{ .IMAGE }}-latest.apko.tar'
+    requires:
+      vars:
+        - IMAGE
+  publish:
+    cmds:
+      - 'apko publish {{ .IMAGE }}.apko.yaml {{ .REGISTRY }}/{{ .IMAGE }}:latest'
+    requires:
+      vars:
+        - IMAGE
+  load:
+    cmds:
+      - 'docker load < {{ .IMAGE }}-latest.apko.tar'
+    requires:
+      vars:
+        - IMAGE

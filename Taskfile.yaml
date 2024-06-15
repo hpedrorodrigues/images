@@ -2,13 +2,13 @@ version: '3'
 
 includes:
   debug:
-    taskfile: images/debug/Taskfile.yml
+    taskfile: debug/Taskfile.yml
     internal: true
   envsubst:
-    taskfile: images/envsubst/Taskfile.yml
+    taskfile: envsubst/Taskfile.yml
     internal: true
   prettier:
-    taskfile: images/prettier/Taskfile.yml
+    taskfile: prettier/Taskfile.yml
     internal: true
 
 tasks:
@@ -24,4 +24,4 @@ tasks:
       - task: prettier:common:load
   clean:
     cmds:
-      - find . \( -name '*.cdx' -o -name '*.spdx.json' -o -name '*.tar' -o -name 'packages' \) -delete
+      - find . \( -name '*.cdx' -o -name '*.spdx.json' -o -name '*.tar' -o -name 'packages' \) -print -exec rm -r {} + -depth

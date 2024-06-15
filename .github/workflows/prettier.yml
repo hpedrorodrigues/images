@@ -8,12 +8,12 @@ on:
     paths:
       - '.github/workflows/shared**'
       - '.github/workflows/prettier.yml'
-      - 'images/prettier/**'
+      - 'prettier/**'
   pull_request:
     paths:
       - '.github/workflows/shared**'
       - '.github/workflows/prettier.yml'
-      - 'images/prettier/**'
+      - 'prettier/**'
   workflow_dispatch:
 jobs:
   build:

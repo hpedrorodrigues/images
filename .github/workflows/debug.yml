@@ -8,12 +8,12 @@ on:
     paths:
       - '.github/workflows/shared**'
       - '.github/workflows/debug.yml'
-      - 'images/debug/**'
+      - 'debug/**'
   pull_request:
     paths:
       - '.github/workflows/shared**'
       - '.github/workflows/debug.yml'
-      - 'images/debug/**'
+      - 'debug/**'
   workflow_dispatch:
 jobs:
   build:
