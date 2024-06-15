@@ -3,6 +3,7 @@
 - [debug](./debug)
 - [envsubst](./envsubst)
 - [prettier](./prettier)
+- [shfmt](./shfmt)
 
 ## Development
 
