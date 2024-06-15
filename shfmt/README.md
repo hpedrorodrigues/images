@@ -1,6 +1,6 @@
 # shfmt
 
-Simple image wrapping shfmt (a shell formatter).
+Simple image wrapping [shfmt] (a shell formatter).
 
 ## Usage
 
@@ -17,3 +17,5 @@ cosign verify ghcr.io/hpedrorodrigues/shfmt:<tag> \
   --certificate-oidc-issuer=https://token.actions.githubusercontent.com \
   --certificate-identity=https://github.com/hpedrorodrigues/images/.github/workflows/shared_publish.yml@refs/heads/main
 ```
+
+[shfmt]: https://github.com/mvdan/sh
