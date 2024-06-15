@@ -1,0 +1,41 @@
+name: shfmt
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/shared**'
+      - '.github/workflows/shfmt.yml'
+      - 'shfmt/**'
+  pull_request:
+    paths:
+      - '.github/workflows/shared**'
+      - '.github/workflows/shfmt.yml'
+      - 'shfmt/**'
+  workflow_dispatch:
+jobs:
+  build:
+    if: github.event_name == 'pull_request'
+    uses: ./.github/workflows/shared_build.yml
+    with:
+      owner: ${{ github.repository_owner }}
+      image: shfmt
+      version: pr-${{ github.event.pull_request.head.sha }}
+  publish:
+    permissions:
+      actions: read
+      contents: read
+      id-token: write
+      packages: write
+    if: github.event_name != 'pull_request'
+    uses: ./.github/workflows/shared_publish.yml
+    with:
+      owner: ${{ github.repository_owner }}
+      image: shfmt
+      version: 1.${{ github.run_number }}.${{ github.run_attempt }}
+      revision: ${{ github.sha }}
+    secrets:
+      dh_token: ${{ secrets.DOCKERHUB_TOKEN }}
+      gcr_token: ${{ secrets.GITHUB_TOKEN }}

@@ -10,6 +10,9 @@ includes:
   prettier:
     taskfile: prettier/Taskfile.yml
     internal: true
+  shfmt:
+    taskfile: shfmt/Taskfile.yml
+    internal: true
 
 tasks:
   build:
@@ -17,11 +20,13 @@ tasks:
       - task: debug:common:build
       - task: envsubst:common:build
       - task: prettier:common:build
+      - task: shfmt:common:build
   load:
     deps:
       - task: debug:common:load
       - task: envsubst:common:load
       - task: prettier:common:load
+      - task: shfmt:common:load
   clean:
     cmds:
       - find . \( -name '*.cdx' -o -name '*.spdx.json' -o -name '*.tar' -o -name 'packages' \) -print -exec rm -r {} + -depth

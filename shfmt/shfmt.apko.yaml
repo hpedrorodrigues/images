@@ -1,0 +1,25 @@
+contents:
+  repositories:
+    - https://packages.wolfi.dev/os
+  keyring:
+    - https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
+  packages:
+    - shfmt
+
+archs:
+  - x86_64
+  - aarch64
+
+environment:
+  PATH: /usr/sbin:/sbin:/usr/bin:/bin
+
+entrypoint:
+  command: shfmt
+
+work-dir: /mnt
+
+annotations:
+  org.opencontainers.image.title: shfmt
+  org.opencontainers.image.description: Simple image wrapping shfmt
+  org.opencontainers.image.authors: Pedro Rodrigues <github.com/hpedrorodrigues>
+  org.opencontainers.image.source: https://github.com/hpedrorodrigues/images/tree/main/shfmt
