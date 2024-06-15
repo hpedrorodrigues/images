@@ -1,8 +1,8 @@
 # Reusable Images
 
-- [debug](./images/debug)
-- [envsubst](./images/envsubst)
-- [prettier](./images/prettier)
+- [debug](./debug)
+- [envsubst](./envsubst)
+- [prettier](./prettier)
 
 ## Development
 

@@ -2,6 +2,6 @@ version: '3'
 
 includes:
   common:
-    taskfile: ../../common/common.Taskfile.yml
+    taskfile: ../.tasks.yml
     vars:
       IMAGE: debug
