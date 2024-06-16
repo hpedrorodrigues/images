@@ -1,4 +1,4 @@
-name: debug
+name: shellcheck
 on:
   schedule:
     - cron: '0 0 * * *'
@@ -7,13 +7,13 @@ on:
       - main
     paths:
       - '.github/workflows/_shared**'
-      - '.github/workflows/debug.yml'
-      - 'debug/**'
+      - '.github/workflows/shellcheck.yml'
+      - 'shellcheck/**'
   pull_request:
     paths:
       - '.github/workflows/_shared**'
-      - '.github/workflows/debug.yml'
-      - 'debug/**'
+      - '.github/workflows/shellcheck.yml'
+      - 'shellcheck/**'
   workflow_dispatch:
 jobs:
   build:
@@ -21,7 +21,7 @@ jobs:
     uses: ./.github/workflows/_shared_build.yml
     with:
       owner: ${{ github.repository_owner }}
-      image: debug
+      image: shellcheck
       version: pr-${{ github.event.pull_request.head.sha }}
   publish:
     permissions:
@@ -33,7 +33,7 @@ jobs:
     uses: ./.github/workflows/_shared_publish.yml
     with:
       owner: ${{ github.repository_owner }}
-      image: debug
+      image: shellcheck
       version: 1.${{ github.run_number }}.${{ github.run_attempt }}
       revision: ${{ github.sha }}
     secrets:

@@ -6,19 +6,19 @@ on:
     branches:
       - main
     paths:
-      - '.github/workflows/shared**'
+      - '.github/workflows/_shared**'
       - '.github/workflows/shfmt.yml'
       - 'shfmt/**'
   pull_request:
     paths:
-      - '.github/workflows/shared**'
+      - '.github/workflows/_shared**'
       - '.github/workflows/shfmt.yml'
       - 'shfmt/**'
   workflow_dispatch:
 jobs:
   build:
     if: github.event_name == 'pull_request'
-    uses: ./.github/workflows/shared_build.yml
+    uses: ./.github/workflows/_shared_build.yml
     with:
       owner: ${{ github.repository_owner }}
       image: shfmt
@@ -30,7 +30,7 @@ jobs:
       id-token: write
       packages: write
     if: github.event_name != 'pull_request'
-    uses: ./.github/workflows/shared_publish.yml
+    uses: ./.github/workflows/_shared_publish.yml
     with:
       owner: ${{ github.repository_owner }}
       image: shfmt
