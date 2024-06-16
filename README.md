@@ -1,4 +1,4 @@
-# Reusable Images
+# OCI Images
 
 - [debug](./debug)
 - [envsubst](./envsubst)
