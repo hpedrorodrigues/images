@@ -30,7 +30,7 @@ jobs:
       contents: read
       id-token: write
       packages: write
-    if: github.event_name != 'pull_request'
+    #if: github.event_name != 'pull_request'
     uses: ./.github/workflows/_shared_publish.yml
     with:
       owner: ${{ github.repository_owner }}
