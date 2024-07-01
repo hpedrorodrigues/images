@@ -9,6 +9,7 @@ contents:
     - busybox-extras
     - conntrack-tools
     - curl
+    - docker
     - ethtool
     - iperf
     - iproute2
