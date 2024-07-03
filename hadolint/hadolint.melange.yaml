@@ -1,0 +1,45 @@
+package:
+  name: hadolint
+  version: 2.12.1-beta
+  epoch: 0
+  target-architecture:
+    - x86_64
+    - aarch64
+
+environment:
+  contents:
+    repositories:
+      - https://dl-cdn.alpinelinux.org/alpine/edge/main
+      - https://dl-cdn.alpinelinux.org/alpine/edge/community
+    packages:
+      - build-base
+      - ca-certificates-bundle
+      - nix
+
+pipeline:
+  - uses: fetch
+    with:
+      expected-sha256: b9461721f689f90e3b1aa691bbf80daaf8bc7e876ba910c45a98b641d9f9dfc2
+      uri: https://github.com/hadolint/hadolint/archive/refs/tags/v${{package.version}}.tar.gz
+
+  - runs: |
+      echo "max-jobs = auto" >> /etc/nix/nix.conf
+      echo "show-trace = true" >> /etc/nix/nix.conf
+      echo "trusted-users = root ${USER:-}" >> /etc/nix/nix.conf
+      echo "trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ= loony-tools:pr9m4BkM/5/eSTZlkQyRt57Jz7OMBxNSUiMC4FkcNfk=" >> /etc/nix/nix.conf
+      echo "substituters = https://cache.nixos.org/ https://cache.iog.io https://cache.zw3rk.com" >> /etc/nix/nix.conf
+      echo "build-users-group =" >> /etc/nix/nix.conf
+      mkdir -p /etc/nix
+      chmod 0755 /etc/nix
+
+      if [ "${{build.arch}}" = 'x86_64' ]; then
+        readonly alias_arch='linux-static'
+      else
+        readonly alias_arch='linux-arm-static'
+      fi
+      echo "alias_arch=${alias_arch}"
+      ls -lash
+      nix-build release.nix -A "${alias_arch}" -j3
+      ls -lash
+
+  - uses: strip

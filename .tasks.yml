@@ -6,7 +6,7 @@ vars:
 tasks:
   build:
     cmds:
-      - '! [ -f {{ .IMAGE }}.melange.yaml ] || melange build {{ .IMAGE }}.melange.yaml --runner docker'
+      - '! [ -f {{ .IMAGE }}.melange.yaml ] || docker run --privileged -v "${PWD}:/work" cgr.dev/chainguard/melange build {{ .IMAGE }}.melange.yaml'
       - 'apko build {{ .IMAGE }}.apko.yaml {{ .REGISTRY }}/{{ .IMAGE }}:latest {{ .IMAGE }}-latest.apko.tar'
     requires:
       vars:
