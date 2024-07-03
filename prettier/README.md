@@ -15,7 +15,7 @@ Verify the signature of the image:
 ```bash
 cosign verify ghcr.io/hpedrorodrigues/prettier:<tag> \
   --certificate-oidc-issuer=https://token.actions.githubusercontent.com \
-  --certificate-identity=https://github.com/hpedrorodrigues/images/.github/workflows/shared_publish.yml@refs/heads/main
+  --certificate-identity=https://github.com/hpedrorodrigues/images/.github/workflows/_shared_publish.yml@refs/heads/main
 ```
 
 [prettier]: https://prettier.io
