@@ -4,7 +4,7 @@ contents:
     - '@local packages'
   packages:
     - alpine-baselayout-data
-    - prettier@local
+    - hadolint@local
 
 archs:
   - x86_64
