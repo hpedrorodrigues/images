@@ -27,7 +27,7 @@ on:
 jobs:
   publish-to-docker-hub:
     name: Publish to Docker Hub (${{ inputs.image }})
-    timeout-minutes: 5
+    timeout-minutes: 150
     runs-on: ubuntu-latest
     permissions:
       actions: read
@@ -76,7 +76,7 @@ jobs:
           keyring-append: ${{ inputs.melange_package && format('{0}/melange.rsa.pub', github.workspace) || '' }}
   publish-to-github-container-registry:
     name: Publish to GitHub Container Registry (${{ inputs.image }})
-    timeout-minutes: 5
+    timeout-minutes: 150
     runs-on: ubuntu-latest
     permissions:
       actions: read

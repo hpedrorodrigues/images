@@ -16,6 +16,7 @@ on:
         type: boolean
 jobs:
   build:
+    timeout-minutes: 150
     runs-on: ubuntu-latest
     steps:
       - name: Clone repository
