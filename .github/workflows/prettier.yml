@@ -17,6 +17,7 @@ on:
   workflow_dispatch:
 jobs:
   build:
+    timeout-minutes: 5
     if: github.event_name == 'pull_request'
     uses: ./.github/workflows/_shared_build.yml
     with:
@@ -30,6 +31,7 @@ jobs:
       contents: read
       id-token: write
       packages: write
+    timeout-minutes: 5
     if: github.event_name != 'pull_request'
     uses: ./.github/workflows/_shared_publish.yml
     with:
