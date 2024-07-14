@@ -40,10 +40,12 @@ jobs:
           repository-append: ${{ github.workspace }}/${{ inputs.image }}/packages
           keyring-append: ${{ inputs.melange_package && format('{0}/melange.rsa.pub', github.workspace) || '' }}
       - name: Load image into docker daemon
-        run: |
-          docker load < output.tar
-          docker image ls
-      - name: Dive analysis
+        run: docker load < output.tar
+      - name: Dive analysis (amd64)
         uses: MaxymVlasov/dive-action@v1.0.1
         with:
-          image: ghcr.io/${{ inputs.owner }}/${{ inputs.image }}:${{ inputs.version }}
+          image: ghcr.io/${{ inputs.owner }}/${{ inputs.image }}:${{ inputs.version }}-amd64
+      - name: Dive analysis (arm64)
+        uses: MaxymVlasov/dive-action@v1.0.1
+        with:
+          image: ghcr.io/${{ inputs.owner }}/${{ inputs.image }}:${{ inputs.version }}-arm64
