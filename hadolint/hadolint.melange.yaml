@@ -24,6 +24,7 @@ pipeline:
       tag: v${{package.version}}
       expected-commit: 742b76e3b9b4d45d6716771b0f1fae2fa0069104
   - runs: |
-      cabal v2-update
       # Reference: https://github.com/Homebrew/homebrew-core/blob/d7b00fd733bcf99f55a20942cf980ff045f41478/Formula/h/hadolint.rb#L28-L29
+      cabal v2-update
       cabal v2-install --max-backjumps=-1 --install-method=copy --installdir=${{targets.destdir}}/usr/bin
+  - uses: strip

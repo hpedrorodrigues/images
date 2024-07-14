@@ -9,15 +9,9 @@
 
 ## Development
 
-### Useful commands
+This project uses [task](https://taskfile.dev) to manage the build process on local environments.
 
-```bash
-# build all images
-♪ task build
-
-# load all images into the daemon
-♪ task load
-```
+Feel free to take a look at the [Taskfile.yaml](./Taskfile.yaml) to see the available tasks.
 
 ### Reference
 
