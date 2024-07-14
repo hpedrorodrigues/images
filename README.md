@@ -13,7 +13,17 @@ This project uses [task](https://taskfile.dev) to manage the build process on lo
 
 Feel free to take a look at the [Taskfile.yaml](./Taskfile.yaml) to see the available tasks.
 
-### Reference
+## Signature
+
+Verify the signature of an image:
+
+```bash
+cosign verify ghcr.io/hpedrorodrigues/<tool>:<tag> \
+  --certificate-oidc-issuer=https://token.actions.githubusercontent.com \
+  --certificate-identity=https://github.com/hpedrorodrigues/images/.github/workflows/_shared_publish.yml@refs/heads/main
+```
+
+## Reference
 
 - [SLSA specification](https://slsa.dev)
 - [Sigstore docs](https://docs.sigstore.dev)

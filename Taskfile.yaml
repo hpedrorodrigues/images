@@ -7,6 +7,9 @@ includes:
   envsubst:
     taskfile: envsubst/Taskfile.yml
     internal: true
+  hadolint:
+    taskfile: hadolint/Taskfile.yml
+    internal: true
   prettier:
     taskfile: prettier/Taskfile.yml
     internal: true
@@ -22,6 +25,7 @@ tasks:
     deps:
       - task: debug:common:build
       - task: envsubst:common:build
+      - task: hadolint:common:build
       - task: prettier:common:build
       - task: shellcheck:common:build
       - task: shfmt:common:build
@@ -29,6 +33,7 @@ tasks:
     deps:
       - task: debug:common:load
       - task: envsubst:common:load
+      - task: hadolint:common:load
       - task: prettier:common:load
       - task: shellcheck:common:load
       - task: shfmt:common:load
