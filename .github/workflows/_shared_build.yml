@@ -16,7 +16,7 @@ on:
         type: boolean
 jobs:
   build:
-    timeout-minutes: 150
+    timeout-minutes: 150 # required due to hadolint (need to improve the build time somehow)
     runs-on: ubuntu-latest
     steps:
       - name: Clone repository
