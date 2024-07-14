@@ -15,7 +15,7 @@ on:
       - '.github/workflows/hadolint.yml'
       - 'hadolint/**'
   workflow_dispatch:
-concurrency:
+concurrency: # this is required while I don't work on improving the build time
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 jobs:
