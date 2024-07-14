@@ -1,0 +1,29 @@
+package:
+  name: hadolint
+  version: 2.13.0-beta
+  epoch: 0
+  target-architecture:
+    - x86_64
+    - aarch64
+
+environment:
+  contents:
+    repositories:
+      - https://dl-cdn.alpinelinux.org/alpine/edge/main
+      - https://dl-cdn.alpinelinux.org/alpine/edge/community
+    packages:
+      - ca-certificates-bundle
+      - cabal
+      - git
+      - musl-dev
+
+pipeline:
+  - uses: git-checkout
+    with:
+      repository: https://github.com/hadolint/hadolint.git
+      tag: v${{package.version}}
+      expected-commit: 742b76e3b9b4d45d6716771b0f1fae2fa0069104
+  - runs: |
+      cabal v2-update
+      # Reference: https://github.com/Homebrew/homebrew-core/blob/d7b00fd733bcf99f55a20942cf980ff045f41478/Formula/h/hadolint.rb#L28-L29
+      cabal v2-install --max-backjumps=-1 --install-method=copy --installdir=${{targets.destdir}}/usr/bin

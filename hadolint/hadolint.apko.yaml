@@ -1,0 +1,25 @@
+contents:
+  repositories:
+    - https://dl-cdn.alpinelinux.org/alpine/edge/main
+    - '@local packages'
+  packages:
+    - alpine-baselayout-data
+    - hadolint@local
+
+archs:
+  - x86_64
+  - aarch64
+
+environment:
+  PATH: /usr/sbin:/sbin:/usr/bin:/bin
+
+entrypoint:
+  command: hadolint
+
+work-dir: /mnt
+
+annotations:
+  org.opencontainers.image.title: hadolint
+  org.opencontainers.image.description: Simple image wrapping Hadolint
+  org.opencontainers.image.authors: Pedro Rodrigues <github.com/hpedrorodrigues>
+  org.opencontainers.image.source: https://github.com/hpedrorodrigues/images/tree/main/hadolint
