@@ -1,0 +1,13 @@
+diff --git a/hadolint.cabal b/hadolint.cabal
+index 3325e94..98535e5 100644
+--- a/hadolint.cabal
++++ b/hadolint.cabal
+@@ -136,7 +136,7 @@ library
+       StrictData
+       TemplateHaskell
+       TupleSections
+-  ghc-options: -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints -optP-Wno-nonportable-include-path -flate-dmd-anal
++  ghc-options: -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints -optP-Wno-nonportable-include-path -flate-dmd-anal --disable-executable-dynamic --disable-shared --disable-library-for-ghci --ghc-option=-optl=-pthread --ghc-option=-optl=-static
+   build-depends:
+       Cabal
+     , HsYAML
