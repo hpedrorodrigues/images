@@ -1,3 +1,15 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json"
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": ["(^|/)prettier\\.melange\\.yaml$"],
+      "matchStrings": [
+        "name: (?<depName>.*?)",
+        "version: (?<currentValue>.*?)"
+      ],
+      "datasourceTemplate": "npm"
+    }
+  ]
 }
