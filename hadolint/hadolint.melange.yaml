@@ -24,7 +24,19 @@ pipeline:
       tag: v${{package.version}}
       expected-commit: 742b76e3b9b4d45d6716771b0f1fae2fa0069104
   - runs: |
-      # Reference: https://github.com/Homebrew/homebrew-core/blob/d7b00fd733bcf99f55a20942cf980ff045f41478/Formula/h/hadolint.rb#L28-L29
+      # Reference:
+      # - https://github.com/Homebrew/homebrew-core/blob/d7b00fd733bcf99f55a20942cf980ff045f41478/Formula/h/hadolint.rb#L28-L29
+      # - https://github.com/hadolint/hadolint/blob/742b76e3b9b4d45d6716771b0f1fae2fa0069104/release.nix#L29-L37
       cabal v2-update
-      cabal v2-install --max-backjumps=-1 --install-method=copy --installdir=${{targets.destdir}}/usr/bin
+      cabal v2-install \
+        --max-backjumps=-1 \
+        --install-method=copy \
+        --installdir=${{targets.destdir}}/usr/bin \
+        --disable-executable-dynamic \
+        --disable-shared \
+        --disable-library-for-ghci \
+        --disable-profiling \
+        --disable-debug-info \
+        --disable-coverage \
+        --verbose
   - uses: strip
