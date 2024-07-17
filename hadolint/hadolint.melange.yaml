@@ -23,9 +23,6 @@ pipeline:
       repository: https://github.com/hadolint/hadolint.git
       tag: v${{package.version}}
       expected-commit: 742b76e3b9b4d45d6716771b0f1fae2fa0069104
-  - uses: patch
-    with:
-      patches: hadolint/patches/ghc-flags.patch
   - runs: |
       # Reference:
       # - https://github.com/Homebrew/homebrew-core/blob/d7b00fd733bcf99f55a20942cf980ff045f41478/Formula/h/hadolint.rb#L28-L29
