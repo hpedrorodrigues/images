@@ -1,0 +1,41 @@
+name: terragrunt
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/_shared**'
+      - '.github/workflows/terragrunt.yml'
+      - 'terragrunt/**'
+  pull_request:
+    paths:
+      - '.github/workflows/_shared**'
+      - '.github/workflows/terragrunt.yml'
+      - 'terragrunt/**'
+  workflow_dispatch:
+jobs:
+  build:
+    if: github.event_name == 'pull_request'
+    uses: ./.github/workflows/_shared_build.yml
+    with:
+      owner: ${{ github.repository_owner }}
+      image: terragrunt
+      version: pr-${{ github.event.pull_request.head.sha }}
+  publish:
+    permissions:
+      actions: read
+      contents: read
+      id-token: write
+      packages: write
+    if: github.event_name != 'pull_request'
+    uses: ./.github/workflows/_shared_publish.yml
+    with:
+      owner: ${{ github.repository_owner }}
+      image: terragrunt
+      version: 1.${{ github.run_number }}.${{ github.run_attempt }}
+      revision: ${{ github.sha }}
+    secrets:
+      dh_token: ${{ secrets.DOCKERHUB_TOKEN }}
+      gcr_token: ${{ secrets.GITHUB_TOKEN }}
