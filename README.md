@@ -6,6 +6,7 @@
 - [prettier](./prettier)
 - [shellcheck](./shellcheck)
 - [shfmt](./shfmt)
+- [tf](./tf)
 
 ## Development
 
