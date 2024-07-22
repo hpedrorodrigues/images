@@ -4,4 +4,4 @@ includes:
   common:
     taskfile: ../.tasks.yml
     vars:
-      IMAGE: terragrunt
+      IMAGE: tf
