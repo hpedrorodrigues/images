@@ -19,6 +19,12 @@ includes:
   shfmt:
     taskfile: shfmt/Taskfile.yml
     internal: true
+  tf:
+    taskfile: tf/Taskfile.yml
+    internal: true
+  tools:
+    taskfile: tools/Taskfile.yml
+    internal: true
 
 tasks:
   build:
@@ -29,6 +35,8 @@ tasks:
       - task: prettier:common:build
       - task: shellcheck:common:build
       - task: shfmt:common:build
+      - task: tf:common:build
+      - task: tools:common:build
   load:
     deps:
       - task: debug:common:load
@@ -37,6 +45,8 @@ tasks:
       - task: prettier:common:load
       - task: shellcheck:common:load
       - task: shfmt:common:load
+      - task: tf:common:load
+      - task: tools:common:load
   clean:
     cmds:
       - find . \( -name '*.cdx' -o -name '*.spdx.json' -o -name '*.tar' -o -name 'packages' \) -print -exec rm -r {} + -depth

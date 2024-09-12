@@ -1,6 +1,6 @@
 # tools
 
-Image conatinig basic/common tools for GitHub actions.
+Image containing basic/common tools (to be used along with GitHub actions).
 
 ## Usage
 
