@@ -1,0 +1,24 @@
+contents:
+  repositories:
+    - https://dl-cdn.alpinelinux.org/alpine/edge/main
+    - https://dl-cdn.alpinelinux.org/alpine/edge/community
+  packages:
+    - bash
+    - zip
+    - curl
+    - jq
+
+archs:
+  - x86_64
+  - aarch64
+
+environment:
+  PATH: /usr/sbin:/sbin:/usr/bin:/bin
+
+cmd: /bin/bash -l
+
+annotations:
+  org.opencontainers.image.title: tools
+  org.opencontainers.image.description: Simple image with basic tools for GitHub actions
+  org.opencontainers.image.authors: Pedro Rodrigues <github.com/hpedrorodrigues>
+  org.opencontainers.image.source: https://github.com/hpedrorodrigues/images/tree/main/tools

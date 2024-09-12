@@ -1,0 +1,46 @@
+contents:
+  repositories:
+    - https://dl-cdn.alpinelinux.org/alpine/edge/main
+    - https://dl-cdn.alpinelinux.org/alpine/edge/community
+  packages:
+    - bash
+    - bind-tools
+    - bridge-utils
+    - busybox-extras
+    - conntrack-tools
+    - curl
+    - docker
+    - ethtool
+    - iperf
+    - iproute2
+    - ipset
+    - iptables
+    - iputils
+    - jq
+    - mtr
+    - net-snmp-tools
+    - nftables
+    - nmap
+    - openssl
+    - redis
+    - socat
+    - strace
+    - tcpdump
+    - tcptraceroute
+    - util-linux
+    - wget
+
+archs:
+  - x86_64
+  - aarch64
+
+environment:
+  PATH: /usr/sbin:/sbin:/usr/bin:/bin
+
+cmd: /bin/bash -l
+
+annotations:
+  org.opencontainers.image.title: debug
+  org.opencontainers.image.description: Simple image with tools for debugging and troubleshooting
+  org.opencontainers.image.authors: Pedro Rodrigues <github.com/hpedrorodrigues>
+  org.opencontainers.image.source: https://github.com/hpedrorodrigues/images/tree/main/debug

@@ -7,6 +7,7 @@
 - [shellcheck](./shellcheck)
 - [shfmt](./shfmt)
 - [tf](./tf)
+- [tools](./tools)
 
 ## Development
 
@@ -18,11 +19,16 @@ Feel free to take a look at the [Taskfile.yaml](./Taskfile.yaml) to see the avai
 
 Verify the signature of an image:
 
+<details>
+<summary>example</summary>
+
 ```bash
 cosign verify ghcr.io/hpedrorodrigues/<tool>:<tag> \
   --certificate-oidc-issuer=https://token.actions.githubusercontent.com \
   --certificate-identity=https://github.com/hpedrorodrigues/images/.github/workflows/_shared_publish.yml@refs/heads/main
 ```
+
+</details>
 
 ## Reference
 
