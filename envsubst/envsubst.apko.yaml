@@ -12,7 +12,10 @@ archs:
 environment:
   PATH: /usr/sbin:/sbin:/usr/bin:/bin
 
-cmd: /bin/sh -l
+entrypoint:
+  command: envsubst
+
+work-dir: /mnt
 
 annotations:
   org.opencontainers.image.title: envsubst
