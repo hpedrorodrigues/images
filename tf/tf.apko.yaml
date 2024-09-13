@@ -16,6 +16,8 @@ archs:
 environment:
   PATH: /usr/sbin:/sbin:/usr/bin:/bin
 
+cmd: /bin/bash -l
+
 work-dir: /mnt
 
 annotations:

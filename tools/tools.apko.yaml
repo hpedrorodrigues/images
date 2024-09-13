@@ -1,7 +1,8 @@
 contents:
   repositories:
-    - https://dl-cdn.alpinelinux.org/alpine/edge/main
-    - https://dl-cdn.alpinelinux.org/alpine/edge/community
+    - https://packages.wolfi.dev/os
+  keyring:
+    - https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
   packages:
     - bash
     - zip
@@ -16,6 +17,8 @@ environment:
   PATH: /usr/sbin:/sbin:/usr/bin:/bin
 
 cmd: /bin/bash -l
+
+work-dir: /mnt
 
 annotations:
   org.opencontainers.image.title: tools

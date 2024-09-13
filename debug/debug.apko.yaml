@@ -39,6 +39,8 @@ environment:
 
 cmd: /bin/bash -l
 
+work-dir: /mnt
+
 annotations:
   org.opencontainers.image.title: debug
   org.opencontainers.image.description: Simple image with tools for debugging and troubleshooting
