@@ -11,12 +11,14 @@ contents:
     - curl
     - docker
     - ethtool
+    - geoip
     - iperf
     - iproute2
     - ipset
     - iptables
     - iputils
     - jq
+    - mii-tool
     - mtr
     - net-snmp-tools
     - nftables
