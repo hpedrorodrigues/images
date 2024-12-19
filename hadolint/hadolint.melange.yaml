@@ -1,6 +1,6 @@
 package:
   name: hadolint
-  version: 2.13.0-beta
+  version: 2.13.1-beta
   epoch: 0
   target-architecture:
     - x86_64
