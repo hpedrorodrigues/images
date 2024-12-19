@@ -33,7 +33,7 @@ jobs:
           repository-path: ${{ github.workspace }}/${{ inputs.image }}/packages
           archs: x86_64,aarch64
       - name: Build image
-        uses: distroless/actions/apko-build@main
+        uses: chainguard-images/actions/apko-build@main
         with:
           config: ${{ inputs.image }}/${{ inputs.image }}.apko.yaml
           tag: ghcr.io/${{ inputs.owner }}/${{ inputs.image }}:${{ inputs.version }}

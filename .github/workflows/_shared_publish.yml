@@ -60,7 +60,7 @@ jobs:
           username: ${{ inputs.owner }}
           password: ${{ secrets.dh_token }}
       - name: Publish to Docker Hub
-        uses: hpedrorodrigues/chainguard-actions/apko-snapshot@dev
+        uses: chainguard-images/actions/apko-snapshot@main
         with:
           config: ${{ inputs.image }}/${{ inputs.image }}.apko.yaml
           base-tag: docker.io/${{ inputs.owner }}/${{ inputs.image }}
@@ -104,7 +104,7 @@ jobs:
           echo "epoch=$(date -u +%s)" >> ${GITHUB_OUTPUT}
         shell: sh
       - name: Publish to GitHub Container Registry
-        uses: hpedrorodrigues/chainguard-actions/apko-snapshot@dev
+        uses: chainguard-images/actions/apko-snapshot@main
         with:
           config: ${{ inputs.image }}/${{ inputs.image }}.apko.yaml
           base-tag: ghcr.io/${{ inputs.owner }}/${{ inputs.image }}
