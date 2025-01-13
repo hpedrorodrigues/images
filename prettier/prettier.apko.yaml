@@ -4,7 +4,7 @@ contents:
     - '@local packages'
   packages:
     - alpine-baselayout-data
-    - prettier@local
+    - prettier
 
 archs:
   - x86_64
