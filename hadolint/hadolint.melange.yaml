@@ -22,7 +22,7 @@ pipeline:
     with:
       repository: https://github.com/hadolint/hadolint.git
       tag: v${{package.version}}
-      expected-commit: 742b76e3b9b4d45d6716771b0f1fae2fa0069104
+      expected-commit: 4ab5d7809325c8de23956a44ca5a1f3c25907faf
   - runs: |
       # Reference:
       # - https://github.com/Homebrew/homebrew-core/blob/d7b00fd733bcf99f55a20942cf980ff045f41478/Formula/h/hadolint.rb#L28-L29
