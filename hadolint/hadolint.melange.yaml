@@ -1,6 +1,6 @@
 package:
   name: hadolint
-  version: 2.13.1-beta
+  version: 2.13.1
   epoch: 0
   target-architecture:
     - x86_64
@@ -21,7 +21,7 @@ pipeline:
   - uses: git-checkout
     with:
       repository: https://github.com/hadolint/hadolint.git
-      tag: v${{package.version}}
+      tag: v${{package.version}}-beta
       expected-commit: 4ab5d7809325c8de23956a44ca5a1f3c25907faf
   - runs: |
       # Reference:
