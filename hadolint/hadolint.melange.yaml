@@ -1,6 +1,6 @@
 package:
   name: hadolint
-  version: 2.13.1-beta
+  version: 2.12.0
   epoch: 0
   target-architecture:
     - x86_64
@@ -22,7 +22,7 @@ pipeline:
     with:
       repository: https://github.com/hadolint/hadolint.git
       tag: v${{package.version}}
-      expected-commit: 4ab5d7809325c8de23956a44ca5a1f3c25907faf
+      expected-commit: b3555ba9c2bfd9401e79f2f0da68dd1ae38e10c7
   - runs: |
       # Reference:
       # - https://github.com/Homebrew/homebrew-core/blob/d7b00fd733bcf99f55a20942cf980ff045f41478/Formula/h/hadolint.rb#L28-L29
