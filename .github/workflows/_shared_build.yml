@@ -42,10 +42,10 @@ jobs:
       - name: Load image into docker daemon
         run: docker load < output.tar
       - name: Dive analysis (amd64)
-        uses: MaxymVlasov/dive-action@v1.2.1
+        uses: MaxymVlasov/dive-action@v1.3.0
         with:
           image: ghcr.io/${{ inputs.owner }}/${{ inputs.image }}:${{ inputs.version }}-amd64
       - name: Dive analysis (arm64)
-        uses: MaxymVlasov/dive-action@v1.2.1
+        uses: MaxymVlasov/dive-action@v1.3.0
         with:
           image: ghcr.io/${{ inputs.owner }}/${{ inputs.image }}:${{ inputs.version }}-arm64
