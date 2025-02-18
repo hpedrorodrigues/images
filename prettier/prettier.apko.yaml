@@ -1,7 +1,8 @@
 contents:
+  build_repositories:
+    - '@local packages'
   repositories:
     - https://dl-cdn.alpinelinux.org/alpine/edge/main
-    - '@local packages'
   packages:
     - alpine-baselayout-data
     - prettier
