@@ -37,5 +37,4 @@ jobs:
       version: 1.${{ github.run_number }}.${{ github.run_attempt }}
       revision: ${{ github.sha }}
     secrets:
-      dh_token: ${{ secrets.DOCKERHUB_TOKEN }}
       gcr_token: ${{ secrets.GITHUB_TOKEN }}
