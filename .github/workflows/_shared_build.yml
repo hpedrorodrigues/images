@@ -37,7 +37,7 @@ jobs:
         with:
           config: ${{ inputs.image }}/${{ inputs.image }}.apko.yaml
           tag: ghcr.io/${{ inputs.owner }}/${{ inputs.image }}:${{ inputs.version }}
-          repository-append: ${{ github.workspace }}/${{ inputs.image }}/packages
+          build-repository-append: ${{ github.workspace }}/${{ inputs.image }}/packages
           keyring-append: ${{ inputs.melange_package && format('{0}/melange.rsa.pub', github.workspace) || '' }}
       - name: Load image into docker daemon
         run: docker load < output.tar
