@@ -42,5 +42,4 @@ jobs:
       revision: ${{ github.sha }}
       melange_package: true
     secrets:
-      dh_token: ${{ secrets.DOCKERHUB_TOKEN }}
       gcr_token: ${{ secrets.GITHUB_TOKEN }}
