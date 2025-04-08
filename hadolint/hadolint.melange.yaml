@@ -16,7 +16,7 @@ environment:
       - cabal
       - git
       - musl-dev
-      - gmp
+      - gmp-dev
 
 pipeline:
   - uses: git-checkout
