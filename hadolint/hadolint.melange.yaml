@@ -16,25 +16,7 @@ environment:
       - cabal
       - git
       - musl-dev
-      - binutils-gold
-      - g++
-      - gcc
-      - gmp
-      - gmp-dev
       - gmp-static
-      - gzip
-      - libffi-dev
-      - libc-dev
-      - make
-      - ncurses-dev
-      - ncurses-static
-      - perl
-      - sudo
-      - tar
-      - xz
-      - zlib
-      - zlib-dev
-      - zlib-static
 
 pipeline:
   - uses: git-checkout
