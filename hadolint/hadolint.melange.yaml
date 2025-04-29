@@ -21,6 +21,7 @@ environment:
       - gcc
       - gmp
       - gmp-dev
+      - gmp-static
       - gzip
       - libffi-dev
       - libc-dev
