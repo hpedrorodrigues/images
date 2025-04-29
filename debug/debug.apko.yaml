@@ -31,6 +31,7 @@ contents:
     - tcptraceroute
     - util-linux
     - wget
+    - apk-tools
 
 archs:
   - x86_64
