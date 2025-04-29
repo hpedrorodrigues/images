@@ -3,15 +3,16 @@ contents:
     - https://dl-cdn.alpinelinux.org/alpine/edge/main
     - https://dl-cdn.alpinelinux.org/alpine/edge/community
   packages:
+    - apk-tools
     - bash
     - bind-tools
     - bridge-utils
-    - busybox-extras
     - conntrack-tools
     - curl
     - docker
     - ethtool
     - geoip
+    - inetutils-telnet
     - iperf
     - iproute2
     - ipset
@@ -21,6 +22,7 @@ contents:
     - mii-tool
     - mtr
     - net-snmp-tools
+    - netcat-openbsd
     - nftables
     - nmap
     - openssl
@@ -28,10 +30,9 @@ contents:
     - socat
     - strace
     - tcpdump
-    - tcptraceroute
+    - traceroute
     - util-linux
     - wget
-    - apk-tools
 
 archs:
   - x86_64
