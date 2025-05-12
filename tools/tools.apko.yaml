@@ -8,6 +8,7 @@ contents:
     - zip
     - curl
     - jq
+    - yq
 
 archs:
   - x86_64
