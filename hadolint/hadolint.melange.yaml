@@ -22,8 +22,8 @@ pipeline:
   - uses: git-checkout
     with:
       repository: https://github.com/hadolint/hadolint.git
-      tag: v${{package.version}}-beta
-      expected-commit: 4ab5d7809325c8de23956a44ca5a1f3c25907faf
+      tag: v${{package.version}}
+      expected-commit: 33deb7817c88475caa1ce7d832922ff0f674fa15
   - runs: |
       # Reference:
       # - https://github.com/Homebrew/homebrew-core/blob/d7b00fd733bcf99f55a20942cf980ff045f41478/Formula/h/hadolint.rb#L28-L29
