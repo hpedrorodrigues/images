@@ -44,6 +44,6 @@ pipeline:
         --disable-profiling \
         --disable-debug-info \
         --disable-coverage \
-        --allow-newer=puresat:base,spdx:base \
+        --allow-newer=base \
         --verbose
   - uses: strip
