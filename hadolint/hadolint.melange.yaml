@@ -26,9 +26,14 @@ pipeline:
       expected-commit: 57e1618d78fd469a92c1e584e8c9313024656623
   - runs: |
       # Reference:
-      # - https://github.com/Homebrew/homebrew-core/blob/d7b00fd733bcf99f55a20942cf980ff045f41478/Formula/h/hadolint.rb#L28-L29
+      # - https://github.com/Homebrew/homebrew-core/blob/92e17bbf28c81a6f851b60a558362d5f33965eb4/Formula/h/hadolint.rb#L26-L31
       # - https://github.com/hadolint/hadolint/blob/742b76e3b9b4d45d6716771b0f1fae2fa0069104/release.nix#L29-L37
+
       cabal v2-update
+
+      # re: --allow-newer
+      # workaround for GHC 9.12 until https://github.com/phadej/puresat/pull/7
+      # and base is updated in https://github.com/phadej/spdx
       cabal v2-install \
         --max-backjumps=-1 \
         --install-method=copy \
@@ -39,5 +44,6 @@ pipeline:
         --disable-profiling \
         --disable-debug-info \
         --disable-coverage \
+        --allow-newer=puresat:base,spdx:base \
         --verbose
   - uses: strip
