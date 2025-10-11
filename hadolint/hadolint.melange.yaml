@@ -33,6 +33,7 @@ pipeline:
 
       # re: --allow-newer & --allow-older
       # Required to fix this: https://github.com/hpedrorodrigues/images/actions/runs/18421192979/job/52495271937.
+      # TODO: remove on new releases when possible.
       cabal v2-install \
         --max-backjumps=-1 \
         --install-method=copy \
