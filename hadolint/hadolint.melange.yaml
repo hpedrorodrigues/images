@@ -15,8 +15,17 @@ environment:
       - ca-certificates-bundle
       - cabal
       - git
+      # https://github.com/hadolint/hadolint/blob/0de1129e51101cec92859b4627f849a2716d2bf6/.github/workflows/release.yml#L48-L51
+      - gmp
+      - gmp-dev
+      - libffi-dev
+      - libc-dev
       - musl-dev
-      - gmp-static
+      - ncurses-dev
+      - ncurses-static
+      - zlib
+      - zlib-dev
+      - zlib-static
 
 pipeline:
   - uses: git-checkout
