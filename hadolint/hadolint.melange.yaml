@@ -16,13 +16,20 @@ environment:
       - cabal
       - git
       # https://github.com/hadolint/hadolint/blob/0de1129e51101cec92859b4627f849a2716d2bf6/.github/workflows/release.yml#L48-L51
+      - binutils-gold
+      - g++
+      - gcc
       - gmp
       - gmp-dev
-      - libffi-dev
+      - gzip
       - libc-dev
+      - libffi-dev
+      - make
       - musl-dev
       - ncurses-dev
       - ncurses-static
+      - perl
+      - xz
       - zlib
       - zlib-dev
       - zlib-static
