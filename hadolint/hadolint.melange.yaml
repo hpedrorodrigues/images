@@ -31,9 +31,8 @@ pipeline:
 
       cabal v2-update
 
-      # re: --allow-newer
-      # workaround for GHC 9.12 until https://github.com/phadej/puresat/pull/7
-      # and base is updated in https://github.com/phadej/spdx
+      # re: --allow-newer & --allow-older
+      # Required to fix this: https://github.com/hpedrorodrigues/images/actions/runs/18421192979/job/52495271937.
       cabal v2-install \
         --max-backjumps=-1 \
         --install-method=copy \
@@ -45,5 +44,6 @@ pipeline:
         --disable-debug-info \
         --disable-coverage \
         --allow-newer=base \
+        --allow-older=base \
         --verbose
   - uses: strip
