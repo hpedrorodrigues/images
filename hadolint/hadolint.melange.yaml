@@ -1,6 +1,6 @@
 package:
   name: hadolint
-  version: 2.13.1
+  version: 2.14.0
   epoch: 0
   target-architecture:
     - x86_64
@@ -15,20 +15,41 @@ environment:
       - ca-certificates-bundle
       - cabal
       - git
+      # https://github.com/hadolint/hadolint/blob/0de1129e51101cec92859b4627f849a2716d2bf6/.github/workflows/release.yml#L48-L51
+      - binutils-gold
+      - g++
+      - gcc
+      - gmp
+      - gmp-dev
+      - gzip
+      - libc-dev
+      - libffi-dev
+      - make
       - musl-dev
-      - gmp-static
+      - ncurses-dev
+      - ncurses-static
+      - perl
+      - xz
+      - zlib
+      - zlib-dev
+      - zlib-static
 
 pipeline:
   - uses: git-checkout
     with:
       repository: https://github.com/hadolint/hadolint.git
-      tag: v${{package.version}}-beta
-      expected-commit: 4ab5d7809325c8de23956a44ca5a1f3c25907faf
+      tag: v${{package.version}}
+      expected-commit: 57e1618d78fd469a92c1e584e8c9313024656623
   - runs: |
       # Reference:
-      # - https://github.com/Homebrew/homebrew-core/blob/d7b00fd733bcf99f55a20942cf980ff045f41478/Formula/h/hadolint.rb#L28-L29
+      # - https://github.com/Homebrew/homebrew-core/blob/92e17bbf28c81a6f851b60a558362d5f33965eb4/Formula/h/hadolint.rb#L26-L31
       # - https://github.com/hadolint/hadolint/blob/742b76e3b9b4d45d6716771b0f1fae2fa0069104/release.nix#L29-L37
+
       cabal v2-update
+
+      # re: --allow-newer & --allow-older
+      # Required to fix this: https://github.com/hpedrorodrigues/images/actions/runs/18421192979/job/52495271937.
+      # TODO: remove on new releases when possible.
       cabal v2-install \
         --max-backjumps=-1 \
         --install-method=copy \
@@ -39,5 +60,7 @@ pipeline:
         --disable-profiling \
         --disable-debug-info \
         --disable-coverage \
+        --allow-newer=base \
+        --allow-older=base \
         --verbose
   - uses: strip
