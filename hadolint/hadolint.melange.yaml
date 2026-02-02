@@ -42,7 +42,7 @@ pipeline:
       expected-commit: 57e1618d78fd469a92c1e584e8c9313024656623
   - runs: |
       # Reference:
-      # - https://github.com/Homebrew/homebrew-core/blob/92e17bbf28c81a6f851b60a558362d5f33965eb4/Formula/h/hadolint.rb#L26-L31
+      # - https://github.com/Homebrew/homebrew-core/blob/9d824ec719cb59697557fb3c5541bdfc61e22933/Formula/h/hadolint.rb#L25-L33
       # - https://github.com/hadolint/hadolint/blob/742b76e3b9b4d45d6716771b0f1fae2fa0069104/release.nix#L29-L37
 
       cabal v2-update
@@ -60,7 +60,6 @@ pipeline:
         --disable-profiling \
         --disable-debug-info \
         --disable-coverage \
-        --allow-newer=base \
-        --allow-older=base \
+        --allow-newer=base,containers,template-haskell \
         --verbose
   - uses: strip
