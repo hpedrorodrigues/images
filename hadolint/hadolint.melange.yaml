@@ -11,16 +11,19 @@ environment:
     repositories:
       - https://dl-cdn.alpinelinux.org/alpine/edge/main
       - https://dl-cdn.alpinelinux.org/alpine/edge/community
+    # https://github.com/hadolint/hadolint/blob/0d4f787e3f8211457c4423febc24680a313c43d0/.github/workflows/release.yml#L47-L52
     packages:
-      - ca-certificates-bundle
-      - cabal
-      - git
-      # https://github.com/hadolint/hadolint/blob/0de1129e51101cec92859b4627f849a2716d2bf6/.github/workflows/release.yml#L48-L51
+      - bash
       - binutils-gold
+      - cabal
+      - ca-certificates-bundle
+      - curl
       - g++
       - gcc
+      - git
       - gmp
       - gmp-dev
+      - gmp-static
       - gzip
       - libc-dev
       - libffi-dev
@@ -29,6 +32,7 @@ environment:
       - ncurses-dev
       - ncurses-static
       - perl
+      - tar
       - xz
       - zlib
       - zlib-dev
@@ -41,26 +45,11 @@ pipeline:
       tag: v${{package.version}}
       expected-commit: 57e1618d78fd469a92c1e584e8c9313024656623
   - runs: |
-      # Reference:
-      # - https://github.com/Homebrew/homebrew-core/blob/92e17bbf28c81a6f851b60a558362d5f33965eb4/Formula/h/hadolint.rb#L26-L31
-      # - https://github.com/hadolint/hadolint/blob/742b76e3b9b4d45d6716771b0f1fae2fa0069104/release.nix#L29-L37
-
+      # https://github.com/Homebrew/homebrew-core/blob/9d824ec719cb59697557fb3c5541bdfc61e22933/Formula/h/hadolint.rb#L25-L33
       cabal v2-update
-
-      # re: --allow-newer & --allow-older
-      # Required to fix this: https://github.com/hpedrorodrigues/images/actions/runs/18421192979/job/52495271937.
-      # TODO: remove on new releases when possible.
       cabal v2-install \
-        --max-backjumps=-1 \
         --install-method=copy \
         --installdir=${{targets.destdir}}/usr/bin \
-        --disable-executable-dynamic \
-        --disable-shared \
-        --disable-library-for-ghci \
-        --disable-profiling \
-        --disable-debug-info \
-        --disable-coverage \
-        --allow-newer=base \
-        --allow-older=base \
+        --allow-newer=base,containers,template-haskell \
         --verbose
   - uses: strip
