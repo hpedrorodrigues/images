@@ -49,18 +49,8 @@ pipeline:
       # - https://github.com/Homebrew/homebrew-core/blob/9d824ec719cb59697557fb3c5541bdfc61e22933/Formula/h/hadolint.rb#L25-L33
       cabal v2-update
       cabal v2-install \
-        --max-backjumps=-1 \
         --install-method=copy \
         --installdir=${{targets.destdir}}/usr/bin \
-        --only-dependencies \
-        --enable-executable-static \
-        --disable-executable-dynamic \
-        --disable-shared \
-        --disable-library-for-ghci \
-        --disable-profiling \
-        --disable-debug-info \
-        --disable-coverage \
         --allow-newer=base,containers,template-haskell \
-        --ghc-options='-split-sections -optl-static -optl-pthread -fPIC' \
         --verbose
   - uses: strip
