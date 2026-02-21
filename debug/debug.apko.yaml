@@ -38,6 +38,19 @@ archs:
   - x86_64
   - aarch64
 
+accounts:
+  groups:
+    - groupname: root
+      gid: 0
+    - groupname: nonroot
+      gid: 65532
+  users:
+    - username: root
+      uid: 0
+    - username: nonroot
+      uid: 65532
+  run-as: 0
+
 environment:
   PATH: /usr/sbin:/sbin:/usr/bin:/bin
 
