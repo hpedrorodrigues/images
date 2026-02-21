@@ -40,16 +40,12 @@ archs:
 
 accounts:
   groups:
-    - groupname: root
-      gid: 0
     - groupname: nonroot
       gid: 65532
   users:
-    - username: root
-      uid: 0
     - username: nonroot
       uid: 65532
-  run-as: 0
+  run-as: '0' # Run as root by default
 
 environment:
   PATH: /usr/sbin:/sbin:/usr/bin:/bin
