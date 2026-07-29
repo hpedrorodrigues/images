@@ -20,12 +20,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Clone repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
       - name: Setup QEMU
         if: ${{ inputs.melange_package }}
-        uses: docker/setup-qemu-action@v4
+        uses: docker/setup-qemu-action@96fe6ef7f33517b61c61be40b68a1882f3264fb8 # v4
       - name: Build apk package (melange)
-        uses: chainguard-dev/actions/melange-build@main
+        uses: chainguard-dev/actions/melange-build@fed81b5f62f7e11d0c33331f4dd488f6aaff71cc # main
         if: ${{ inputs.melange_package }}
         with:
           sign-with-temporary-key: true
@@ -33,7 +33,7 @@ jobs:
           repository-path: ${{ github.workspace }}/${{ inputs.image }}/packages
           archs: x86_64,aarch64
       - name: Build image
-        uses: chainguard-images/actions/apko-build@main
+        uses: chainguard-images/actions/apko-build@a32d54a799f0b2d2e5a75f94805b2509cc898ae8 # main
         with:
           config: ${{ inputs.image }}/${{ inputs.image }}.apko.yaml
           tag: ghcr.io/${{ inputs.owner }}/${{ inputs.image }}:${{ inputs.version }}
@@ -42,10 +42,10 @@ jobs:
       - name: Load image into docker daemon
         run: docker load < output.tar
       - name: Dive analysis (amd64)
-        uses: MaxymVlasov/dive-action@v2.0.1
+        uses: MaxymVlasov/dive-action@9bfaea6c0b1e49111459b2cb3f9275fa4094a63e # v2.0.1
         with:
           image: ghcr.io/${{ inputs.owner }}/${{ inputs.image }}:${{ inputs.version }}-amd64
       - name: Dive analysis (arm64)
-        uses: MaxymVlasov/dive-action@v2.0.1
+        uses: MaxymVlasov/dive-action@9bfaea6c0b1e49111459b2cb3f9275fa4094a63e # v2.0.1
         with:
           image: ghcr.io/${{ inputs.owner }}/${{ inputs.image }}:${{ inputs.version }}-arm64
