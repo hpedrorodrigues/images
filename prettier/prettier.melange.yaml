@@ -1,7 +1,7 @@
 package:
   name: prettier
   # renovate: datasource=npm depName=prettier
-  version: 3.8.2
+  version: 3.9.6
   epoch: 0
   checks:
     disabled:
