@@ -1,0 +1,38 @@
+contents:
+  keyring:
+    - https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
+  repositories:
+    - https://packages.wolfi.dev/os
+  packages:
+    - bash
+    - busybox
+    - gdb
+    - glibc-locale-en
+    - procps
+    - wolfi-baselayout
+
+archs:
+  - x86_64
+  - aarch64
+
+accounts:
+  groups:
+    - groupname: nonroot
+      gid: 65532
+  users:
+    - username: nonroot
+      uid: 65532
+  run-as: '0' # gdb needs to ptrace a process it does not own
+
+environment:
+  PATH: /usr/sbin:/sbin:/usr/bin:/bin
+
+cmd: /bin/bash -l
+
+work-dir: /mnt
+
+annotations:
+  org.opencontainers.image.title: gdb
+  org.opencontainers.image.description: Simple image with gdb for attaching to processes of other containers
+  org.opencontainers.image.authors: Pedro Rodrigues <github.com/hpedrorodrigues>
+  org.opencontainers.image.source: https://github.com/hpedrorodrigues/images/tree/main/gdb
