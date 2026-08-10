@@ -2,6 +2,7 @@
 
 - [debug](./debug)
 - [envsubst](./envsubst)
+- [gdb](./gdb)
 - [hadolint](./hadolint)
 - [prettier](./prettier)
 - [shellcheck](./shellcheck)
