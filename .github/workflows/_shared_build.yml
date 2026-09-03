@@ -25,7 +25,7 @@ jobs:
         if: ${{ inputs.melange_package }}
         uses: docker/setup-qemu-action@1f40c72289eff860ee54a304f1438e3cff362e0a # v4
       - name: Build apk package (melange)
-        uses: chainguard-dev/actions/melange-build@0b85f3bc5e5ac7e002269bf908619ca445e7f92b # main
+        uses: chainguard-dev/actions/melange-build@142d22e4cec7c824db396585b9bc86f76f7c1732 # main
         if: ${{ inputs.melange_package }}
         with:
           sign-with-temporary-key: true
