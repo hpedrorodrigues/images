@@ -52,7 +52,7 @@ jobs:
           echo "epoch=$(date -u +%s)" >> ${GITHUB_OUTPUT}
         shell: sh
       - name: Publish to GitHub Container Registry
-        uses: chainguard-images/actions/apko-snapshot@8e701b320e7efcb120a1115de26e9fe833f86390 # main
+        uses: chainguard-images/actions/apko-snapshot@ea65d8418fab1b4f7df7a8048bc175536b8032de # main
         with:
           config: ${{ inputs.image }}/${{ inputs.image }}.apko.yaml
           base-tag: ghcr.io/${{ inputs.owner }}/${{ inputs.image }}
