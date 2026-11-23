@@ -33,7 +33,7 @@ jobs:
           repository-path: ${{ github.workspace }}/${{ inputs.image }}/packages
           archs: x86_64,aarch64
       - name: Build image
-        uses: chainguard-images/actions/apko-build@edc551933ef2b49e50c15b002716f74e303108d2 # main
+        uses: chainguard-images/actions/apko-build@39d5c9517c8cc21573588efebf53b7eafb459171 # main
         with:
           config: ${{ inputs.image }}/${{ inputs.image }}.apko.yaml
           tag: ghcr.io/${{ inputs.owner }}/${{ inputs.image }}:${{ inputs.version }}
